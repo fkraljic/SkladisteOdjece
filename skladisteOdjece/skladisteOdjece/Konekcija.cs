@@ -7,15 +7,14 @@ using Npgsql;
 
 namespace skladisteOdjece
 {
-    class Konekcija
+    public class Konekcija
     {
-        private NpgsqlConnection conn;
-        public NpgsqlConnection OtvoriKonekciju()
+        public NpgsqlConnection conn;
+        public void OtvoriKonekciju()
         {
             string connstring = String.Format("Server=127.0.0.1;Port=5432;User Id=postgres;Password=1234; Database=ducan_odjeca");
             conn = new NpgsqlConnection(connstring);
             conn.Open();
-            return conn;
         }
         public void ZatvoriKonekciju()
         {

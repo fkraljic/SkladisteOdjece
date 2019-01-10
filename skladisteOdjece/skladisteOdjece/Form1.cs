@@ -12,32 +12,43 @@ using Npgsql;
 
 namespace skladisteOdjece
 {
-    public partial class Form1 : Form
+    public partial class Izbornik : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-            Povezivanje();
-        }
         private DataSet ds = new DataSet();
         private DataTable dt = new DataTable();
 
-        private Konekcija konekcija;
+        public Konekcija konekcija;
+        public Izbornik()
+        {
+            InitializeComponent();            
+            konekcija = new Konekcija();
+            konekcija.OtvoriKonekciju();
+            Povezivanje();
+        }        
 
         public void Povezivanje()
-        {
-                konekcija = new Konekcija();
-        
-                string sql = "SELECT * FROM spol";
-                NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, konekcija.OtvoriKonekciju());
-            
-                ds.Reset();
-                da.Fill(ds);
-                dt = ds.Tables[0];
-                dataGridView1.DataSource = dt;
+        {        
+            string sql = "SELECT * FROM spol";
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, konekcija.conn);
 
-                konekcija.ZatvoriKonekciju();
-            
+
+            ds.Reset();
+            da.Fill(ds);
+            dt = ds.Tables[0];
+            dataGridView1.DataSource = dt;
+
+                     
+        }
+
+        private void buttonStanjeSkladista_Click(object sender, EventArgs e)
+        {
+            StanjeSkladišta stanjeSkladišta = new StanjeSkladišta(konekcija);
+            stanjeSkladišta.ShowDialog();
+        }
+
+        private void Izbornik_Load(object sender, EventArgs e)
+        {
+            konekcija.ZatvoriKonekciju();
         }
     }
 }
