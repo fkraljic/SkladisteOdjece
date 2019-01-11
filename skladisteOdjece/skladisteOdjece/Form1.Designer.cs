@@ -28,20 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonStanjeSkladista = new System.Windows.Forms.Button();
             this.buttonEvidencija = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.buttonZaprimljeneN = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAsortiman = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 237);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(117, 165);
-            this.dataGridView1.TabIndex = 0;
             // 
             // buttonStanjeSkladista
             // 
@@ -63,27 +55,59 @@
             this.buttonEvidencija.UseVisualStyleBackColor = true;
             this.buttonEvidencija.Click += new System.EventHandler(this.buttonEvidencija_Click);
             // 
+            // buttonZaprimljeneN
+            // 
+            this.buttonZaprimljeneN.Location = new System.Drawing.Point(324, 199);
+            this.buttonZaprimljeneN.Name = "buttonZaprimljeneN";
+            this.buttonZaprimljeneN.Size = new System.Drawing.Size(161, 54);
+            this.buttonZaprimljeneN.TabIndex = 3;
+            this.buttonZaprimljeneN.Text = "Zaprimljene narudžbe";
+            this.buttonZaprimljeneN.UseVisualStyleBackColor = true;
+            this.buttonZaprimljeneN.Click += new System.EventHandler(this.buttonZaprimljeneN_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(324, 259);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(161, 54);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Narudžbe u dolasku";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonAsortiman
+            // 
+            this.buttonAsortiman.Location = new System.Drawing.Point(324, 319);
+            this.buttonAsortiman.Name = "buttonAsortiman";
+            this.buttonAsortiman.Size = new System.Drawing.Size(161, 54);
+            this.buttonAsortiman.TabIndex = 5;
+            this.buttonAsortiman.Text = "Asortiman";
+            this.buttonAsortiman.UseVisualStyleBackColor = true;
+            this.buttonAsortiman.Click += new System.EventHandler(this.buttonAsortiman_Click);
+            // 
             // Izbornik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonAsortiman);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonZaprimljeneN);
             this.Controls.Add(this.buttonEvidencija);
             this.Controls.Add(this.buttonStanjeSkladista);
-            this.Controls.Add(this.dataGridView1);
             this.Name = "Izbornik";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Izbornik_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonStanjeSkladista;
         private System.Windows.Forms.Button buttonEvidencija;
+        private System.Windows.Forms.Button buttonZaprimljeneN;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAsortiman;
     }
 }
 

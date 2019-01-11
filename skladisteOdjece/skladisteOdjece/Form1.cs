@@ -41,5 +41,23 @@ namespace skladisteOdjece
             EvidencijaSkladista evidencijaSkladista = new EvidencijaSkladista(konekcija);
             evidencijaSkladista.ShowDialog();
         }
+
+        private void buttonZaprimljeneN_Click(object sender, EventArgs e)
+        {
+            ZaprimljeneNarudzbe zaprimljeneNarudzbe = new ZaprimljeneNarudzbe(konekcija);
+            zaprimljeneNarudzbe.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            NezaprimljeneNarudzbe nezaprimljeneNarudzbe = new NezaprimljeneNarudzbe();
+            nezaprimljeneNarudzbe.ShowDialog();
+        }
+
+        private void buttonAsortiman_Click(object sender, EventArgs e)
+        {
+            Asortiman asortiman = new Asortiman(konekcija);
+            asortiman.ShowDialog();
+        }
     }
 }

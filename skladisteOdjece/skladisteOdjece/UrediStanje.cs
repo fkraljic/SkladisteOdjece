@@ -35,7 +35,14 @@ namespace skladisteOdjece
 
             string sql = "UPDATE stanje_na_sk SET kolicina="+kolicina+", pozicija_u_sk='"+pozicija+"' WHERE vk_odjeca="+odabranID;
             NpgsqlCommand command = new NpgsqlCommand(sql, konekcija.conn);
-            NpgsqlDataReader dataReader=command.ExecuteReader();
+            try
+            {
+                NpgsqlDataReader dataReader = command.ExecuteReader();
+            }
+            catch (PostgresException msg) {
+                MessageBox.Show(msg.MessageText,"Upozorenje");
+            }
+            
 
             this.konekcija.ZatvoriKonekciju();
             this.Close();
