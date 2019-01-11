@@ -15,10 +15,10 @@ namespace skladisteOdjece
     {
         private Konekcija konekcija;
         private bool izmjena = false;
-
-        private DataSet ds = new DataSet();
-        private DataTable dt = new DataTable();
-
+        private int idVrsta;
+        private int idUzrast;
+        private char idSpol;
+        private int idMaterijal;
 
         public UnosIzmjenaAsortimana()
         {
@@ -31,42 +31,105 @@ namespace skladisteOdjece
 
         private void PuniCombobox()
         {
-            string sqlVrsta = "SELECT id,naziv FROM vrsta;";
+            string sqlVrsta = "SELECT id,naziv,opis FROM vrsta;";
+            DataSet dsVrsta = new DataSet();
+            DataTable dtVrsta = new DataTable();
             NpgsqlDataAdapter daVrsta = new NpgsqlDataAdapter(sqlVrsta, konekcija.conn);
+            dsVrsta.Reset();
+            daVrsta.Fill(dsVrsta);
+            dtVrsta = dsVrsta.Tables[0];
+            dataGridViewVrsta.DataSource = dtVrsta;
 
-            daVrsta.Fill(ds);
-            dt = ds.Tables[0];
+            string sqlUzrast = "SELECT id,naziv,opis FROM uzrast;";
+            DataSet dsUzrast = new DataSet();
+            DataTable dtUzrast = new DataTable();
+            NpgsqlDataAdapter daUzrast = new NpgsqlDataAdapter(sqlUzrast, konekcija.conn);
+            dsUzrast.Reset();
+            daUzrast.Fill(dsUzrast);
+            dtUzrast = dsUzrast.Tables[0];
+            dataGridViewUzrast.DataSource = dtUzrast;
 
-            VadiElementeVanIzDataSeta(dt, comboBoxVrsta);
+            string sqlSpol = "SELECT spol FROM spol;";
+            DataSet dsSpol = new DataSet();
+            DataTable dtSpol = new DataTable();
+            NpgsqlDataAdapter daSpol = new NpgsqlDataAdapter(sqlSpol, konekcija.conn);
+            dsSpol.Reset();
+            daSpol.Fill(dsSpol);
+            dtSpol = dsSpol.Tables[0];
+            dataGridViewSpol.DataSource = dtSpol;
 
+            string sqlMaterijal = "SELECT id,naziv,opis FROM materijal;";
+            DataSet dsMaterijal = new DataSet();
+            DataTable dtMaterijal = new DataTable();
+            NpgsqlDataAdapter daMaterijal = new NpgsqlDataAdapter(sqlMaterijal, konekcija.conn);
+            dsMaterijal.Reset();
+            daMaterijal.Fill(dsMaterijal);
+            dtMaterijal = dsMaterijal.Tables[0];
+            dataGridViewMaterijal.DataSource = dtMaterijal;
         }
 
-        private void VadiElementeVanIzDataSeta(DataTable dataTable, ComboBox c)
-        {
-            dt = dataTable;
-            foreach (DataTable dt in ds.Tables)
-            {
-                foreach (DataRow row in dt.Rows)
-                {
-
-                    c.Items.Add(row[1].ToString());
-                }
-            }
-        }
-
-        private void Unesi()
+        private void PohraniNovuRobu()
         {
             string naziv = textBoxNaziv.Text;
             string opis = textBoxOpis.Text;
-            int vrsta = int.Parse(comboBoxVrsta.SelectedIndex.ToString());
-            int uzrast = int.Parse(comboBoxUzrast.SelectedIndex.ToString());
-            int spol = int.Parse(comboBoxSpol.SelectedIndex.ToString());
-            int materijal = int.Parse(comboBoxMaterijal.SelectedIndex.ToString());
+            string zemlja = textBoxZemlja.Text;
+            int minKol =int.Parse(textBoxMinKol.Text);
+            int kolNar =int.Parse(textBoxKolNar.Text);
+            string datum = "";
+            datum = datum+ dateTimePicker1.Value.Year+"-";
+            datum = datum+ dateTimePicker1.Value.Month+"-";
+            datum = datum+ dateTimePicker1.Value.Day;
+            
+
+
+            string sql = "INSERT INTO odjeca(naziv,opis,vk_vrsta,vk_uzrast,vk_spol,vk_materijal,zemlja_proizvodnje,godina,min_kolicina,kolicina_narucivanja) " +
+                "VALUES('"+naziv+"','"+opis+"',"+idVrsta+","+idUzrast+",'"+idSpol+"',"+idMaterijal+",'"+zemlja+"','"+datum+"',"+minKol+","+kolNar+");";
+            NpgsqlCommand command = new NpgsqlCommand(sql, konekcija.conn);
+            NpgsqlDataReader dataReader = command.ExecuteReader();
+            
+
         }
 
         private void buttonSpremi_Click(object sender, EventArgs e)
         {
-            this.Text=comboBoxVrsta.SelectedIndex.ToString();
+            PohraniNovuRobu();
+            konekcija.ZatvoriKonekciju();
+        }
+
+        private void dataGridViewVrsta_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                idVrsta = int.Parse(dataGridViewVrsta.CurrentRow.Cells[0].Value.ToString());
+            }
+            catch (Exception) { }
+        }
+
+        private void dataGridViewUzrast_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                idUzrast = int.Parse(dataGridViewUzrast.CurrentRow.Cells[0].Value.ToString());
+            }
+            catch (Exception) { }
+        }
+
+        private void dataGridViewSpol_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                idSpol = char.Parse(dataGridViewSpol.CurrentRow.Cells[0].Value.ToString());
+            }
+            catch (Exception) { }
+        }
+
+        private void dataGridViewMaterijal_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                idMaterijal = int.Parse(dataGridViewMaterijal.CurrentRow.Cells[1].Value.ToString());
+            }
+            catch (Exception) { }
         }
     }
 }
