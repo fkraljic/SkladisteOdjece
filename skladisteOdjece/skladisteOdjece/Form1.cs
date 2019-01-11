@@ -23,22 +23,7 @@ namespace skladisteOdjece
             InitializeComponent();            
             konekcija = new Konekcija();
             konekcija.OtvoriKonekciju();
-            Povezivanje();
         }        
-
-        public void Povezivanje()
-        {        
-            string sql = "SELECT * FROM spol";
-            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, konekcija.conn);
-
-
-            ds.Reset();
-            da.Fill(ds);
-            dt = ds.Tables[0];
-            dataGridView1.DataSource = dt;
-
-                     
-        }
 
         private void buttonStanjeSkladista_Click(object sender, EventArgs e)
         {
@@ -49,6 +34,12 @@ namespace skladisteOdjece
         private void Izbornik_Load(object sender, EventArgs e)
         {
             konekcija.ZatvoriKonekciju();
+        }
+
+        private void buttonEvidencija_Click(object sender, EventArgs e)
+        {
+            EvidencijaSkladista evidencijaSkladista = new EvidencijaSkladista(konekcija);
+            evidencijaSkladista.ShowDialog();
         }
     }
 }

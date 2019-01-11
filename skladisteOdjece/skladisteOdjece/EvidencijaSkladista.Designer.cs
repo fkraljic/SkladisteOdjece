@@ -1,6 +1,6 @@
 ﻿namespace skladisteOdjece
 {
-    partial class StanjeSkladišta
+    partial class EvidencijaSkladista
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonUrediStanje = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -38,36 +37,22 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(142, 12);
-            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1454, 767);
+            this.dataGridView1.Size = new System.Drawing.Size(1200, 663);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
-            // buttonUrediStanje
-            // 
-            this.buttonUrediStanje.Location = new System.Drawing.Point(12, 12);
-            this.buttonUrediStanje.Name = "buttonUrediStanje";
-            this.buttonUrediStanje.Size = new System.Drawing.Size(124, 55);
-            this.buttonUrediStanje.TabIndex = 1;
-            this.buttonUrediStanje.Text = "Uredi stanje";
-            this.buttonUrediStanje.UseVisualStyleBackColor = true;
-            this.buttonUrediStanje.Click += new System.EventHandler(this.buttonUrediStanje_Click);
-            // 
-            // StanjeSkladišta
+            // EvidencijaSkladista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1608, 791);
-            this.Controls.Add(this.buttonUrediStanje);
+            this.ClientSize = new System.Drawing.Size(1224, 687);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "StanjeSkladišta";
+            this.Name = "EvidencijaSkladista";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "StanjeSkladišta";
+            this.Text = "EvidencijaSkladista";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -76,6 +61,5 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button buttonUrediStanje;
     }
 }

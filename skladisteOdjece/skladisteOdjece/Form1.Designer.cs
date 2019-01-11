@@ -30,6 +30,7 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonStanjeSkladista = new System.Windows.Forms.Button();
+            this.buttonEvidencija = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,11 +53,22 @@
             this.buttonStanjeSkladista.UseVisualStyleBackColor = true;
             this.buttonStanjeSkladista.Click += new System.EventHandler(this.buttonStanjeSkladista_Click);
             // 
+            // buttonEvidencija
+            // 
+            this.buttonEvidencija.Location = new System.Drawing.Point(324, 139);
+            this.buttonEvidencija.Name = "buttonEvidencija";
+            this.buttonEvidencija.Size = new System.Drawing.Size(161, 54);
+            this.buttonEvidencija.TabIndex = 2;
+            this.buttonEvidencija.Text = "Evidencija promjene skladišta";
+            this.buttonEvidencija.UseVisualStyleBackColor = true;
+            this.buttonEvidencija.Click += new System.EventHandler(this.buttonEvidencija_Click);
+            // 
             // Izbornik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonEvidencija);
             this.Controls.Add(this.buttonStanjeSkladista);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Izbornik";
@@ -71,6 +83,7 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonStanjeSkladista;
+        private System.Windows.Forms.Button buttonEvidencija;
     }
 }
 

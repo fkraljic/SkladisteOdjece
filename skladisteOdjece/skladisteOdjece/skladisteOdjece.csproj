@@ -58,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EvidencijaSkladista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EvidencijaSkladista.Designer.cs">
+      <DependentUpon>EvidencijaSkladista.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,15 @@
     <Compile Include="StanjeSkladišta.Designer.cs">
       <DependentUpon>StanjeSkladišta.cs</DependentUpon>
     </Compile>
+    <Compile Include="UrediStanje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UrediStanje.Designer.cs">
+      <DependentUpon>UrediStanje.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="EvidencijaSkladista.resx">
+      <DependentUpon>EvidencijaSkladista.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +102,9 @@
     </Compile>
     <EmbeddedResource Include="StanjeSkladišta.resx">
       <DependentUpon>StanjeSkladišta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UrediStanje.resx">
+      <DependentUpon>UrediStanje.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

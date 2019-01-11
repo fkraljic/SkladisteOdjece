@@ -13,10 +13,14 @@ namespace skladisteOdjece
 {
     public partial class StanjeSkladišta : Form
     {
-        private Konekcija konekcija;
+        public Konekcija konekcija;
 
         private DataSet ds = new DataSet();
         private DataTable dt = new DataTable();
+
+        private int odabranID;
+        private int kolicina;
+        private string pozicija;
 
         public StanjeSkladišta(Konekcija konekcija)
         {
@@ -36,5 +40,23 @@ namespace skladisteOdjece
             dataGridView1.DataSource = dt;
         }
 
+        private void buttonUrediStanje_Click(object sender, EventArgs e)
+        {
+            UrediStanje urediStanje = new UrediStanje(odabranID,kolicina,pozicija,this.konekcija);
+            urediStanje.ShowDialog();
+
+            PrikazStanjaSkladista();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                odabranID = int.Parse(dataGridView1.CurrentRow.Cells[1].Value.ToString());
+                kolicina = int.Parse(dataGridView1.CurrentRow.Cells[9].Value.ToString());
+                pozicija = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+            }
+            catch (Exception) { }
+        }
     }
 }
