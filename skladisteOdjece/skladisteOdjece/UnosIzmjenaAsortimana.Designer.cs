@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelNaslov = new System.Windows.Forms.Label();
             this.textBoxNaziv = new System.Windows.Forms.TextBox();
             this.textBoxOpis = new System.Windows.Forms.TextBox();
             this.textBoxZemlja = new System.Windows.Forms.TextBox();
@@ -56,15 +56,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSpol)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // labelNaslov
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(66, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Unos asortimana";
+            this.labelNaslov.AutoSize = true;
+            this.labelNaslov.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelNaslov.Location = new System.Drawing.Point(66, 38);
+            this.labelNaslov.Name = "labelNaslov";
+            this.labelNaslov.Size = new System.Drawing.Size(174, 25);
+            this.labelNaslov.TabIndex = 0;
+            this.labelNaslov.Text = "Unos asortimana";
             // 
             // textBoxNaziv
             // 
@@ -180,7 +180,6 @@
             this.dataGridViewVrsta.Location = new System.Drawing.Point(318, 118);
             this.dataGridViewVrsta.MultiSelect = false;
             this.dataGridViewVrsta.Name = "dataGridViewVrsta";
-            this.dataGridViewVrsta.ReadOnly = true;
             this.dataGridViewVrsta.RowTemplate.Height = 24;
             this.dataGridViewVrsta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewVrsta.Size = new System.Drawing.Size(387, 150);
@@ -294,7 +293,7 @@
             this.Controls.Add(this.textBoxZemlja);
             this.Controls.Add(this.textBoxOpis);
             this.Controls.Add(this.textBoxNaziv);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelNaslov);
             this.Name = "UnosIzmjenaAsortimana";
             this.Text = "UnosIzmjenaAsortimana";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVrsta)).EndInit();
@@ -308,7 +307,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelNaslov;
         private System.Windows.Forms.TextBox textBoxNaziv;
         private System.Windows.Forms.TextBox textBoxOpis;
         private System.Windows.Forms.TextBox textBoxZemlja;

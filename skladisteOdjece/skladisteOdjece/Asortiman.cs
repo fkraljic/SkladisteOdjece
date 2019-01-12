@@ -16,6 +16,8 @@ namespace skladisteOdjece
         Konekcija konekcija;
         private DataSet ds = new DataSet();
         private DataTable dt = new DataTable();
+        private int idOdjece;
+        private DataGridViewRow odjeca;
 
         public Asortiman(Konekcija konekcija)
         {
@@ -44,6 +46,26 @@ namespace skladisteOdjece
         {
             UnosIzmjenaAsortimana unos = new UnosIzmjenaAsortimana();
             unos.ShowDialog();
+
+            PrikazPodataka();
+        }
+
+        private void buttonIzmjeniO_Click(object sender, EventArgs e)
+        {
+            UnosIzmjenaAsortimana unos = new UnosIzmjenaAsortimana(idOdjece,odjeca);
+            unos.ShowDialog();
+
+            PrikazPodataka();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                idOdjece = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                odjeca = dataGridView1.CurrentRow;
+            }
+            catch (Exception) { }
         }
     }
 }

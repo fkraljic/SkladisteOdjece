@@ -59,5 +59,17 @@ namespace skladisteOdjece
             Asortiman asortiman = new Asortiman(konekcija);
             asortiman.ShowDialog();
         }
+
+        private void buttonVelicine_Click(object sender, EventArgs e)
+        {
+            DostupneVelicineOdjece dostupneVelicine = new DostupneVelicineOdjece(konekcija);
+            dostupneVelicine.ShowDialog();
+        }
+
+        private void buttonDodavanjeNaSkl_Click(object sender, EventArgs e)
+        {
+            DodavanjeNaSkladište dodavanje = new DodavanjeNaSkladište();
+            dodavanje.Show();
+        }
     }
 }

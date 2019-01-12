@@ -47,6 +47,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1036, 603);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // buttonDodajO
             // 
@@ -66,6 +67,7 @@
             this.buttonIzmjeniO.TabIndex = 2;
             this.buttonIzmjeniO.Text = "Izmjeni";
             this.buttonIzmjeniO.UseVisualStyleBackColor = true;
+            this.buttonIzmjeniO.Click += new System.EventHandler(this.buttonIzmjeniO_Click);
             // 
             // Asortiman
             // 

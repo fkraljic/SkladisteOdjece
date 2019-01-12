@@ -19,12 +19,36 @@ namespace skladisteOdjece
         private int idUzrast;
         private char idSpol;
         private int idMaterijal;
+        private int idOdjece;
+
+        private DataGridViewRow odjeca;
 
         public UnosIzmjenaAsortimana()
         {
             InitializeComponent();
             konekcija = new Konekcija();
             konekcija.OtvoriKonekciju();
+
+            PuniCombobox();
+        }
+
+        public UnosIzmjenaAsortimana(int idOdjece, DataGridViewRow odjeca)
+        {
+            InitializeComponent();
+            konekcija = new Konekcija();
+            konekcija.OtvoriKonekciju();
+
+            izmjena = true;
+
+            this.idOdjece = idOdjece;
+
+            textBoxNaziv.Text=odjeca.Cells[1].Value.ToString();
+            textBoxOpis.Text = odjeca.Cells[2].Value.ToString();
+            textBoxZemlja.Text = odjeca.Cells[7].Value.ToString();
+            textBoxMinKol.Text = odjeca.Cells[9].Value.ToString();
+            textBoxKolNar.Text = odjeca.Cells[10].Value.ToString();
+
+            labelNaslov.Text = "Izmjena odjece: " + idOdjece;
 
             PuniCombobox();
         }
@@ -79,21 +103,51 @@ namespace skladisteOdjece
             datum = datum+ dateTimePicker1.Value.Year+"-";
             datum = datum+ dateTimePicker1.Value.Month+"-";
             datum = datum+ dateTimePicker1.Value.Day;
-            
-
 
             string sql = "INSERT INTO odjeca(naziv,opis,vk_vrsta,vk_uzrast,vk_spol,vk_materijal,zemlja_proizvodnje,godina,min_kolicina,kolicina_narucivanja) " +
                 "VALUES('"+naziv+"','"+opis+"',"+idVrsta+","+idUzrast+",'"+idSpol+"',"+idMaterijal+",'"+zemlja+"','"+datum+"',"+minKol+","+kolNar+");";
             NpgsqlCommand command = new NpgsqlCommand(sql, konekcija.conn);
-            NpgsqlDataReader dataReader = command.ExecuteReader();
-            
+            command.ExecuteReader();
+        }
 
+        private void IzmjeniRobu()
+        {
+            string naziv = textBoxNaziv.Text;
+            string opis = textBoxOpis.Text;
+            string zemlja = textBoxZemlja.Text;
+            int minKol = int.Parse(textBoxMinKol.Text);
+            int kolNar = int.Parse(textBoxKolNar.Text);
+            string datum = "";
+            datum = datum + dateTimePicker1.Value.Year + "-";
+            datum = datum + dateTimePicker1.Value.Month + "-";
+            datum = datum + dateTimePicker1.Value.Day;
+
+            string sql = "UPDATE odjeca SET " +
+                "naziv='"+naziv+"'," +
+                "opis='"+opis+"'," +
+                "vk_vrsta="+idVrsta+"," +
+                "vk_uzrast="+idUzrast+"," +
+                "vk_spol=?"+idSpol+"'," +
+                "vk_materijal="+idMaterijal+"," +
+                "zemlja_proizvodnje='"+zemlja+"'," +
+                "godina='"+datum+"'," +
+                "min_kolicina="+minKol+"," +
+                "kolicina_narucivanja="+kolNar+" " +
+                "WHERE id="+idOdjece+";";
+            NpgsqlCommand command = new NpgsqlCommand(sql, konekcija.conn);
+            command.ExecuteReader();
         }
 
         private void buttonSpremi_Click(object sender, EventArgs e)
         {
-            PohraniNovuRobu();
+            if (izmjena)
+                IzmjeniRobu();
+            else
+                PohraniNovuRobu();
+
             konekcija.ZatvoriKonekciju();
+
+            this.Close();
         }
 
         private void dataGridViewVrsta_SelectionChanged(object sender, EventArgs e)
@@ -127,7 +181,7 @@ namespace skladisteOdjece
         {
             try
             {
-                idMaterijal = int.Parse(dataGridViewMaterijal.CurrentRow.Cells[1].Value.ToString());
+                idMaterijal = int.Parse(dataGridViewMaterijal.CurrentRow.Cells[0].Value.ToString());
             }
             catch (Exception) { }
         }

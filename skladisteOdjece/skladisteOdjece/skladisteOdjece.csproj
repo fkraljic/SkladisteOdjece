@@ -64,6 +64,18 @@
     <Compile Include="Asortiman.Designer.cs">
       <DependentUpon>Asortiman.cs</DependentUpon>
     </Compile>
+    <Compile Include="DodavanjeNaSkladište.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodavanjeNaSkladište.Designer.cs">
+      <DependentUpon>DodavanjeNaSkladište.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DostupneVelicineOdjece.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DostupneVelicineOdjece.Designer.cs">
+      <DependentUpon>DostupneVelicineOdjece.cs</DependentUpon>
+    </Compile>
     <Compile Include="EvidencijaSkladista.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +123,12 @@
     </Compile>
     <EmbeddedResource Include="Asortiman.resx">
       <DependentUpon>Asortiman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodavanjeNaSkladište.resx">
+      <DependentUpon>DodavanjeNaSkladište.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DostupneVelicineOdjece.resx">
+      <DependentUpon>DostupneVelicineOdjece.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EvidencijaSkladista.resx">
       <DependentUpon>EvidencijaSkladista.cs</DependentUpon>
