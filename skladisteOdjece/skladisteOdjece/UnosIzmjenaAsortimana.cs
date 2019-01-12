@@ -127,7 +127,7 @@ namespace skladisteOdjece
                 "opis='"+opis+"'," +
                 "vk_vrsta="+idVrsta+"," +
                 "vk_uzrast="+idUzrast+"," +
-                "vk_spol=?"+idSpol+"'," +
+                "vk_spol='"+idSpol+"'," +
                 "vk_materijal="+idMaterijal+"," +
                 "zemlja_proizvodnje='"+zemlja+"'," +
                 "godina='"+datum+"'," +

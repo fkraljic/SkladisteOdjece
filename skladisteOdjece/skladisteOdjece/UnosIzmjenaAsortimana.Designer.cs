@@ -59,10 +59,10 @@
             // labelNaslov
             // 
             this.labelNaslov.AutoSize = true;
-            this.labelNaslov.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelNaslov.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelNaslov.Location = new System.Drawing.Point(66, 38);
             this.labelNaslov.Name = "labelNaslov";
-            this.labelNaslov.Size = new System.Drawing.Size(174, 25);
+            this.labelNaslov.Size = new System.Drawing.Size(208, 29);
             this.labelNaslov.TabIndex = 0;
             this.labelNaslov.Text = "Unos asortimana";
             // 
@@ -164,9 +164,9 @@
             // 
             // buttonSpremi
             // 
-            this.buttonSpremi.Location = new System.Drawing.Point(119, 419);
+            this.buttonSpremi.Location = new System.Drawing.Point(95, 407);
             this.buttonSpremi.Name = "buttonSpremi";
-            this.buttonSpremi.Size = new System.Drawing.Size(76, 34);
+            this.buttonSpremi.Size = new System.Drawing.Size(124, 34);
             this.buttonSpremi.TabIndex = 21;
             this.buttonSpremi.Text = "Spremi";
             this.buttonSpremi.UseVisualStyleBackColor = true;
@@ -176,13 +176,15 @@
             // 
             this.dataGridViewVrsta.AllowUserToAddRows = false;
             this.dataGridViewVrsta.AllowUserToDeleteRows = false;
+            this.dataGridViewVrsta.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dataGridViewVrsta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewVrsta.Location = new System.Drawing.Point(318, 118);
             this.dataGridViewVrsta.MultiSelect = false;
             this.dataGridViewVrsta.Name = "dataGridViewVrsta";
+            this.dataGridViewVrsta.ReadOnly = true;
             this.dataGridViewVrsta.RowTemplate.Height = 24;
             this.dataGridViewVrsta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewVrsta.Size = new System.Drawing.Size(387, 150);
+            this.dataGridViewVrsta.Size = new System.Drawing.Size(387, 192);
             this.dataGridViewVrsta.TabIndex = 22;
             this.dataGridViewVrsta.SelectionChanged += new System.EventHandler(this.dataGridViewVrsta_SelectionChanged);
             // 
@@ -190,6 +192,7 @@
             // 
             this.dataGridViewUzrast.AllowUserToAddRows = false;
             this.dataGridViewUzrast.AllowUserToDeleteRows = false;
+            this.dataGridViewUzrast.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dataGridViewUzrast.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUzrast.Location = new System.Drawing.Point(711, 118);
             this.dataGridViewUzrast.MultiSelect = false;
@@ -197,7 +200,7 @@
             this.dataGridViewUzrast.ReadOnly = true;
             this.dataGridViewUzrast.RowTemplate.Height = 24;
             this.dataGridViewUzrast.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewUzrast.Size = new System.Drawing.Size(383, 150);
+            this.dataGridViewUzrast.Size = new System.Drawing.Size(383, 192);
             this.dataGridViewUzrast.TabIndex = 23;
             this.dataGridViewUzrast.SelectionChanged += new System.EventHandler(this.dataGridViewUzrast_SelectionChanged);
             // 
@@ -205,14 +208,15 @@
             // 
             this.dataGridViewMaterijal.AllowUserToAddRows = false;
             this.dataGridViewMaterijal.AllowUserToDeleteRows = false;
+            this.dataGridViewMaterijal.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dataGridViewMaterijal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMaterijal.Location = new System.Drawing.Point(595, 303);
+            this.dataGridViewMaterijal.Location = new System.Drawing.Point(595, 348);
             this.dataGridViewMaterijal.MultiSelect = false;
             this.dataGridViewMaterijal.Name = "dataGridViewMaterijal";
             this.dataGridViewMaterijal.ReadOnly = true;
             this.dataGridViewMaterijal.RowTemplate.Height = 24;
             this.dataGridViewMaterijal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewMaterijal.Size = new System.Drawing.Size(499, 150);
+            this.dataGridViewMaterijal.Size = new System.Drawing.Size(499, 176);
             this.dataGridViewMaterijal.TabIndex = 25;
             this.dataGridViewMaterijal.SelectionChanged += new System.EventHandler(this.dataGridViewMaterijal_SelectionChanged);
             // 
@@ -220,14 +224,15 @@
             // 
             this.dataGridViewSpol.AllowUserToAddRows = false;
             this.dataGridViewSpol.AllowUserToDeleteRows = false;
+            this.dataGridViewSpol.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dataGridViewSpol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSpol.Location = new System.Drawing.Point(318, 303);
+            this.dataGridViewSpol.Location = new System.Drawing.Point(318, 348);
             this.dataGridViewSpol.MultiSelect = false;
             this.dataGridViewSpol.Name = "dataGridViewSpol";
             this.dataGridViewSpol.ReadOnly = true;
             this.dataGridViewSpol.RowTemplate.Height = 24;
             this.dataGridViewSpol.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSpol.Size = new System.Drawing.Size(271, 150);
+            this.dataGridViewSpol.Size = new System.Drawing.Size(271, 176);
             this.dataGridViewSpol.TabIndex = 24;
             this.dataGridViewSpol.SelectionChanged += new System.EventHandler(this.dataGridViewSpol_SelectionChanged);
             // 
@@ -252,7 +257,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(315, 283);
+            this.label5.Location = new System.Drawing.Point(315, 328);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 17);
             this.label5.TabIndex = 28;
@@ -261,7 +266,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(592, 283);
+            this.label6.Location = new System.Drawing.Point(592, 328);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 17);
             this.label6.TabIndex = 29;
@@ -271,7 +276,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1140, 515);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(1140, 562);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -294,8 +300,11 @@
             this.Controls.Add(this.textBoxOpis);
             this.Controls.Add(this.textBoxNaziv);
             this.Controls.Add(this.labelNaslov);
+            this.MaximumSize = new System.Drawing.Size(1158, 609);
+            this.MinimumSize = new System.Drawing.Size(1158, 609);
             this.Name = "UnosIzmjenaAsortimana";
-            this.Text = "UnosIzmjenaAsortimana";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Unos i izmjena asortimana";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVrsta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUzrast)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterijal)).EndInit();

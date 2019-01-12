@@ -33,7 +33,7 @@ namespace skladisteOdjece
 
         private void Izbornik_Load(object sender, EventArgs e)
         {
-            konekcija.ZatvoriKonekciju();
+            
         }
 
         private void buttonEvidencija_Click(object sender, EventArgs e)
@@ -69,7 +69,18 @@ namespace skladisteOdjece
         private void buttonDodavanjeNaSkl_Click(object sender, EventArgs e)
         {
             DodavanjeNaSkladište dodavanje = new DodavanjeNaSkladište();
-            dodavanje.Show();
+            dodavanje.ShowDialog();
+        }
+
+        private void buttonStatistika_Click(object sender, EventArgs e)
+        {
+            Statistika statistika = new Statistika();
+            statistika.ShowDialog();
+        }
+
+        private void Izbornik_Leave(object sender, EventArgs e)
+        {
+            konekcija.ZatvoriKonekciju();
         }
     }
 }

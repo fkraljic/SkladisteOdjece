@@ -103,6 +103,12 @@
     <Compile Include="StanjeSkladišta.Designer.cs">
       <DependentUpon>StanjeSkladišta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Statistika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statistika.Designer.cs">
+      <DependentUpon>Statistika.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnosIzmjenaAsortimana.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </Compile>
     <EmbeddedResource Include="StanjeSkladišta.resx">
       <DependentUpon>StanjeSkladišta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statistika.resx">
+      <DependentUpon>Statistika.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UnosIzmjenaAsortimana.resx">
       <DependentUpon>UnosIzmjenaAsortimana.cs</DependentUpon>

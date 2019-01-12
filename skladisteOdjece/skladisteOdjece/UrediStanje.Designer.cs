@@ -61,11 +61,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(92, 26);
+            this.label1.Location = new System.Drawing.Point(62, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 25);
+            this.label1.Size = new System.Drawing.Size(195, 25);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Uredi stanje";
+            this.label1.Text = "Stanje na skladištu";
             // 
             // buttonPotvrdi
             // 
@@ -81,14 +81,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(320, 283);
             this.Controls.Add(this.buttonPotvrdi);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxPozicija);
             this.Controls.Add(this.textBoxKolicina);
             this.Controls.Add(this.textBoxID);
+            this.MaximumSize = new System.Drawing.Size(338, 330);
+            this.MinimumSize = new System.Drawing.Size(338, 330);
             this.Name = "UrediStanje";
-            this.Text = "UrediStanje";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Stanje na skladištu";
             this.ResumeLayout(false);
             this.PerformLayout();
 

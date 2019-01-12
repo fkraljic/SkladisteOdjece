@@ -35,11 +35,13 @@
             this.buttonAsortiman = new System.Windows.Forms.Button();
             this.buttonVelicine = new System.Windows.Forms.Button();
             this.buttonDodavanjeNaSkl = new System.Windows.Forms.Button();
+            this.buttonStatistika = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonStanjeSkladista
             // 
-            this.buttonStanjeSkladista.Location = new System.Drawing.Point(120, 64);
+            this.buttonStanjeSkladista.Location = new System.Drawing.Point(47, 92);
             this.buttonStanjeSkladista.Name = "buttonStanjeSkladista";
             this.buttonStanjeSkladista.Size = new System.Drawing.Size(161, 54);
             this.buttonStanjeSkladista.TabIndex = 1;
@@ -49,7 +51,7 @@
             // 
             // buttonEvidencija
             // 
-            this.buttonEvidencija.Location = new System.Drawing.Point(120, 184);
+            this.buttonEvidencija.Location = new System.Drawing.Point(47, 212);
             this.buttonEvidencija.Name = "buttonEvidencija";
             this.buttonEvidencija.Size = new System.Drawing.Size(161, 54);
             this.buttonEvidencija.TabIndex = 2;
@@ -59,7 +61,7 @@
             // 
             // buttonZaprimljeneN
             // 
-            this.buttonZaprimljeneN.Location = new System.Drawing.Point(120, 244);
+            this.buttonZaprimljeneN.Location = new System.Drawing.Point(47, 272);
             this.buttonZaprimljeneN.Name = "buttonZaprimljeneN";
             this.buttonZaprimljeneN.Size = new System.Drawing.Size(161, 54);
             this.buttonZaprimljeneN.TabIndex = 3;
@@ -69,7 +71,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(120, 304);
+            this.button1.Location = new System.Drawing.Point(214, 272);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(161, 54);
             this.button1.TabIndex = 4;
@@ -79,7 +81,7 @@
             // 
             // buttonAsortiman
             // 
-            this.buttonAsortiman.Location = new System.Drawing.Point(120, 364);
+            this.buttonAsortiman.Location = new System.Drawing.Point(214, 92);
             this.buttonAsortiman.Name = "buttonAsortiman";
             this.buttonAsortiman.Size = new System.Drawing.Size(161, 54);
             this.buttonAsortiman.TabIndex = 5;
@@ -89,7 +91,7 @@
             // 
             // buttonVelicine
             // 
-            this.buttonVelicine.Location = new System.Drawing.Point(120, 424);
+            this.buttonVelicine.Location = new System.Drawing.Point(214, 152);
             this.buttonVelicine.Name = "buttonVelicine";
             this.buttonVelicine.Size = new System.Drawing.Size(161, 54);
             this.buttonVelicine.TabIndex = 6;
@@ -99,7 +101,7 @@
             // 
             // buttonDodavanjeNaSkl
             // 
-            this.buttonDodavanjeNaSkl.Location = new System.Drawing.Point(120, 124);
+            this.buttonDodavanjeNaSkl.Location = new System.Drawing.Point(47, 152);
             this.buttonDodavanjeNaSkl.Name = "buttonDodavanjeNaSkl";
             this.buttonDodavanjeNaSkl.Size = new System.Drawing.Size(161, 54);
             this.buttonDodavanjeNaSkl.TabIndex = 7;
@@ -107,11 +109,34 @@
             this.buttonDodavanjeNaSkl.UseVisualStyleBackColor = true;
             this.buttonDodavanjeNaSkl.Click += new System.EventHandler(this.buttonDodavanjeNaSkl_Click);
             // 
+            // buttonStatistika
+            // 
+            this.buttonStatistika.Location = new System.Drawing.Point(214, 212);
+            this.buttonStatistika.Name = "buttonStatistika";
+            this.buttonStatistika.Size = new System.Drawing.Size(161, 54);
+            this.buttonStatistika.TabIndex = 8;
+            this.buttonStatistika.Text = "Statistika";
+            this.buttonStatistika.UseVisualStyleBackColor = true;
+            this.buttonStatistika.Click += new System.EventHandler(this.buttonStatistika_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(88, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(240, 32);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Skladište odjeće";
+            // 
             // Izbornik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 538);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(423, 366);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttonStatistika);
             this.Controls.Add(this.buttonDodavanjeNaSkl);
             this.Controls.Add(this.buttonVelicine);
             this.Controls.Add(this.buttonAsortiman);
@@ -119,10 +144,15 @@
             this.Controls.Add(this.buttonZaprimljeneN);
             this.Controls.Add(this.buttonEvidencija);
             this.Controls.Add(this.buttonStanjeSkladista);
+            this.MaximumSize = new System.Drawing.Size(441, 413);
+            this.MinimumSize = new System.Drawing.Size(441, 413);
             this.Name = "Izbornik";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Skladište";
             this.Load += new System.EventHandler(this.Izbornik_Load);
+            this.Leave += new System.EventHandler(this.Izbornik_Leave);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -134,6 +164,8 @@
         private System.Windows.Forms.Button buttonAsortiman;
         private System.Windows.Forms.Button buttonVelicine;
         private System.Windows.Forms.Button buttonDodavanjeNaSkl;
+        private System.Windows.Forms.Button buttonStatistika;
+        private System.Windows.Forms.Label label1;
     }
 }
 

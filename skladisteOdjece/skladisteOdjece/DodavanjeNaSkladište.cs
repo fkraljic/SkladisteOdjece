@@ -22,13 +22,13 @@ namespace skladisteOdjece
         {
             InitializeComponent();
             konekcija = new Konekcija();
-            konekcija.OtvoriKonekciju();
 
             PrikazAsortimana();
         }
 
         private void PrikazAsortimana()
         {
+            konekcija.OtvoriKonekciju();
             string sql = "SELECT o.id AS Oznaka,ov.id AS Oznaka_velicine,o.naziv AS Naziv,o.opis AS Opis,v.naziv AS Vrsta,u.naziv AS Uzrast,vl.oznaka AS Velicina FROM odjeca o JOIN vrsta v ON o.vk_vrsta = v.id JOIN uzrast u ON o.vk_uzrast = u.id JOIN spol s ON o.vk_spol = s.spol JOIN materijal m ON o.vk_materijal = m.id JOIN odjeca_velicina ov ON ov.vk_odjeca = o.id JOIN velicina vl ON ov.vk_velicina = vl.id ORDER BY 3 ASC; ";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, konekcija.conn);
 
@@ -36,6 +36,8 @@ namespace skladisteOdjece
             da.Fill(ds);
             dt = ds.Tables[0];
             dataGridView1.DataSource = dt;
+
+            konekcija.OtvoriKonekciju();
         }
 
         private void DodavanjeNaSkladište_Leave(object sender, EventArgs e)
@@ -50,20 +52,19 @@ namespace skladisteOdjece
             string pozicija = "";
             pozicija = textBoxPozicija.Text;
 
-            MessageBox.Show(idOdjece.ToString());
-
             string sql = "INSERT INTO stanje_na_sk(vk_odjeca,kolicina,pozicija_u_sk) VALUES(" + idOdjece + "," + kolicina + ",'"+pozicija+"');";
             try
             {
+
+                konekcija.OtvoriKonekciju();
                 NpgsqlCommand command = new NpgsqlCommand(sql, konekcija.conn);
                 command.ExecuteReader();
+                konekcija.OtvoriKonekciju();
             }
             catch(PostgresException msg)
             {
                 MessageBox.Show("Na skladištu postoji takva stavka!","Upozorenje!");
-            }
-
-
+            }  
         }
     }
 }

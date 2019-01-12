@@ -30,10 +30,9 @@ namespace skladisteOdjece
         public DostupneVelicineOdjece(Konekcija konekcija)
         {
             InitializeComponent();
-
             this.konekcija = konekcija;
+
             konekcijaSpremanja = new Konekcija();
-            konekcijaSpremanja.OtvoriKonekciju();
 
             PrikazPodatakaAsortimana();
             PrikazPodatakaVelicine();
@@ -99,9 +98,11 @@ namespace skladisteOdjece
             string sql = "INSERT INTO odjeca_velicina(vk_odjeca,vk_velicina) VALUES(" + odjeca + "," + velicina + ");";
 
 
-            
+            konekcijaSpremanja.OtvoriKonekciju();
             NpgsqlCommand command = new NpgsqlCommand(sql, konekcijaSpremanja.conn);
             command.ExecuteReader();
+            konekcijaSpremanja.ZatvoriKonekciju();
+
 
             PrikazPodatakaVelicineOdjece();
         }
@@ -112,6 +113,11 @@ namespace skladisteOdjece
         }
 
         private void DostupneVelicineOdjece_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void DostupneVelicineOdjece_Leave(object sender, EventArgs e)
         {
             konekcijaSpremanja.ZatvoriKonekciju();
         }
