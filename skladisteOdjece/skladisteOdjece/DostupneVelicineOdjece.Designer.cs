@@ -35,6 +35,8 @@
             this.buttonDodaj = new System.Windows.Forms.Button();
             this.dataGridViewVelicineOdjece = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBoxFilter = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOdjeca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVelicine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVelicineOdjece)).BeginInit();
@@ -124,12 +126,31 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Određivanje dostupnih veličina odjeće";
             // 
+            // textBoxFilter
+            // 
+            this.textBoxFilter.Location = new System.Drawing.Point(1248, 45);
+            this.textBoxFilter.Name = "textBoxFilter";
+            this.textBoxFilter.Size = new System.Drawing.Size(129, 22);
+            this.textBoxFilter.TabIndex = 7;
+            this.textBoxFilter.TextChanged += new System.EventHandler(this.textBoxFilter_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1150, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(92, 17);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Oznaka filter:";
+            // 
             // DostupneVelicineOdjece
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1389, 804);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBoxFilter);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridViewVelicineOdjece);
             this.Controls.Add(this.buttonDodaj);
@@ -161,5 +182,7 @@
         private System.Windows.Forms.Button buttonDodaj;
         private System.Windows.Forms.DataGridView dataGridViewVelicineOdjece;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxFilter;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -31,6 +31,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonUrediStanje = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBoxFilter = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,12 +72,31 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Stanje skladišta";
             // 
+            // textBoxFilter
+            // 
+            this.textBoxFilter.Location = new System.Drawing.Point(12, 160);
+            this.textBoxFilter.Name = "textBoxFilter";
+            this.textBoxFilter.Size = new System.Drawing.Size(124, 22);
+            this.textBoxFilter.TabIndex = 3;
+            this.textBoxFilter.TextChanged += new System.EventHandler(this.textBoxFilter_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 140);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 17);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Filter oznake:";
+            // 
             // StanjeSkladišta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1532, 788);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBoxFilter);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonUrediStanje);
             this.Controls.Add(this.dataGridView1);
@@ -95,5 +116,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonUrediStanje;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxFilter;
+        private System.Windows.Forms.Label label2;
     }
 }

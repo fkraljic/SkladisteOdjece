@@ -40,6 +40,17 @@ namespace skladisteOdjece
             dataGridView1.DataSource = dt;
         }
 
+        private void PrikazStanjaSkladistaFilter(int id)
+        {
+            string sql = "SELECT o.id AS Oznaka,ov.id AS Oznaka_velicine,o.naziv AS Naziv,o.opis AS Opis,v.naziv AS Vrsta,u.naziv AS Uzrast,s.spol AS Spol,m.naziv AS Materijal,vl.oznaka AS Velicina,sns.kolicina AS Kolicina,sns.pozicija_u_sk AS Lokacija FROM odjeca o JOIN vrsta v ON o.vk_vrsta = v.id JOIN uzrast u ON o.vk_uzrast = u.id JOIN spol s ON o.vk_spol = s.spol JOIN materijal m ON o.vk_materijal = m.id JOIN odjeca_velicina ov ON ov.vk_odjeca = o.id JOIN velicina vl ON ov.vk_velicina = vl.id JOIN stanje_na_sk sns ON sns.vk_odjeca = ov.id WHERE o.id="+id+" ORDER BY 3,8 ASC; ";
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, konekcija.conn);
+
+            ds.Reset();
+            da.Fill(ds);
+            dt = ds.Tables[0];
+            dataGridView1.DataSource = dt;
+        }
+
         private void buttonUrediStanje_Click(object sender, EventArgs e)
         {
             UrediStanje urediStanje = new UrediStanje(odabranID,kolicina,pozicija,this.konekcija);
@@ -57,6 +68,20 @@ namespace skladisteOdjece
                 pozicija = dataGridView1.CurrentRow.Cells[10].Value.ToString();
             }
             catch (Exception) { }
+        }
+
+        private void textBoxFilter_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxFilter.Text.Length != 0)
+            {
+                int id = int.Parse(textBoxFilter.Text);
+                PrikazStanjaSkladistaFilter(id);
+            }
+            else
+            {
+                PrikazStanjaSkladista();
+            }
+            
         }
     }
 }

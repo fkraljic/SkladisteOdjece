@@ -45,6 +45,24 @@ namespace skladisteOdjece
             konekcija.ZatvoriKonekciju();
         }
 
+        private void PrikaziPodatkeFilter(int id)
+        {
+            konekcija.OtvoriKonekciju();
+            string sql = "SELECT n.id AS Oznaka, o.naziv AS Naziv_odjece, n.kolicina AS Narucena_kolicina, n.datum AS Datum_narucivanja,n.vk_odjeca AS Dobava_robe " +
+                "FROM narudzbenica n JOIN odjeca_velicina ov ON n.vk_odjeca=ov.id " +
+                "JOIN odjeca o ON ov.vk_odjeca=o.id " +
+                "JOIN dobava_robe dr ON n.vk_dobava_robe=dr.id " +
+                "WHERE n.zaprimljeno IS False AND n.id=" +id+
+                " ORDER BY 1;";
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, konekcija.conn);
+
+            ds.Reset();
+            da.Fill(ds);
+            dt = ds.Tables[0];
+            dataGridView1.DataSource = dt;
+            konekcija.ZatvoriKonekciju();
+        }
+
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -79,6 +97,14 @@ namespace skladisteOdjece
 
             PrikaziPodatke();
 
+        }
+
+        private void textBoxFilter_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxFilter.Text.Length != 0)
+                PrikaziPodatkeFilter(int.Parse(textBoxFilter.Text));
+            else
+                PrikaziPodatke();
         }
     }
 }

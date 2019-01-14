@@ -54,6 +54,22 @@ namespace skladisteOdjece
             dataGridViewOdjeca.DataSource = dtOdj;
         }
 
+        private void PrikazPodatakaAsortimanaFilter(int id)
+        {
+            string sql = "SELECT o.id AS Oznaka,o.naziv,o.opis,v.naziv AS Vrsta,u.naziv AS Uzrast,s.spol AS Spol,m.naziv AS Materijal,o.zemlja_proizvodnje,o.godina,o.min_kolicina,o.kolicina_narucivanja " +
+                "FROM odjeca o JOIN vrsta v ON o.vk_vrsta=v.id " +
+                "JOIN uzrast u ON o.vk_uzrast=u.id " +
+                "JOIN spol s ON o.vk_spol=s.spol " +
+                "JOIN materijal m ON o.vk_materijal=m.id WHERE o.id="+id +
+                " ORDER BY 1;";
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, konekcija.conn);
+
+            dsOdj.Reset();
+            da.Fill(dsOdj);
+            dtOdj = dsOdj.Tables[0];
+            dataGridViewOdjeca.DataSource = dtOdj;
+        }
+
         private void PrikazPodatakaVelicine()
         {
             string sql = "SELECT * FROM velicina;";
@@ -120,6 +136,14 @@ namespace skladisteOdjece
         private void DostupneVelicineOdjece_Leave(object sender, EventArgs e)
         {
             konekcijaSpremanja.ZatvoriKonekciju();
+        }
+
+        private void textBoxFilter_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxFilter.Text.Length != 0)
+                PrikazPodatakaAsortimanaFilter(int.Parse(textBoxFilter.Text));
+            else
+                PrikazPodatakaAsortimana();
         }
     }
 }

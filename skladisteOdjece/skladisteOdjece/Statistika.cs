@@ -8,12 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZedGraph;
+
 
 namespace skladisteOdjece
 {
     public partial class Statistika : Form
     {
         private Konekcija konekcija;
+       
         public Statistika()
         {
             InitializeComponent();
@@ -73,17 +76,27 @@ namespace skladisteOdjece
             datumDo = datumDo + dateTimePickerDo3.Value.Year + "-";
             datumDo = datumDo + dateTimePickerDo3.Value.Month + "-";
             datumDo = datumDo + dateTimePickerDo3.Value.Day;
+            
 
             string sql = "SELECT es.vk_odjeca AS Oznaka,COUNT(es.vk_odjeca) AS Kolicina,o.naziv AS Naziv,v.oznaka AS Velicina FROM evidencija_sk es JOIN odjeca_velicina ov ON es.vk_odjeca=ov.id JOIN velicina v ON ov.vk_velicina=v.id JOIN odjeca o ON ov.vk_odjeca=o.id WHERE vrsta_posla LIKE 'Oduzeto' AND datum_evidencije>'" + datumOd+"' AND datum_evidencije<'"+datumDo+ "'  GROUP BY 1,3,4 ORDER BY 2 DESC LIMIT 5;";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, konekcija.conn);
            
             DataSet ds = new DataSet();
             DataTable dt = new DataTable();
-
             ds.Reset();
             da.Fill(ds);
             dt = ds.Tables[0];
             dataGridView1.DataSource = dt;
+
+
+            foreach (DataTable table in ds.Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    chart1.Series["Odjeća"].Points.AddXY(row["Naziv"].ToString()+" "+row["Velicina"].ToString(), row["Kolicina"].ToString());                     
+                }
+            }
+
         }
 
         private void buttonOdredi1_Click(object sender, EventArgs e)
@@ -105,6 +118,11 @@ namespace skladisteOdjece
         private void buttonOdredi3_Click(object sender, EventArgs e)
         {
             Top5();
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

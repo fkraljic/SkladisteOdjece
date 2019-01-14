@@ -32,6 +32,8 @@
             this.buttonDodajO = new System.Windows.Forms.Button();
             this.buttonIzmjeniO = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBoxFilter = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,12 +83,31 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Unos i izmjena asortimana";
             // 
+            // textBoxFilter
+            // 
+            this.textBoxFilter.Location = new System.Drawing.Point(12, 248);
+            this.textBoxFilter.Name = "textBoxFilter";
+            this.textBoxFilter.Size = new System.Drawing.Size(113, 22);
+            this.textBoxFilter.TabIndex = 4;
+            this.textBoxFilter.TextChanged += new System.EventHandler(this.textBoxFilter_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 228);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 17);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Filter oznake";
+            // 
             // Asortiman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1179, 685);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBoxFilter);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonIzmjeniO);
             this.Controls.Add(this.buttonDodajO);
@@ -108,5 +129,7 @@
         private System.Windows.Forms.Button buttonDodajO;
         private System.Windows.Forms.Button buttonIzmjeniO;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxFilter;
+        private System.Windows.Forms.Label label2;
     }
 }

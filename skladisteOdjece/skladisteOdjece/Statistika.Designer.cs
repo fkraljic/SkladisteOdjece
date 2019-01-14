@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dateTimePickerOd1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDo1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,7 +54,9 @@
             this.dateTimePickerDo3 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerOd3 = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePickerOd1
@@ -260,15 +265,32 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(615, 182);
+            this.dataGridView1.Size = new System.Drawing.Size(615, 225);
             this.dataGridView1.TabIndex = 24;
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(638, 74);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Odjeća";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(612, 558);
+            this.chart1.TabIndex = 25;
+            this.chart1.Text = "chart1";
             // 
             // Statistika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(644, 601);
+            this.ClientSize = new System.Drawing.Size(1262, 644);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonOdredi3);
             this.Controls.Add(this.label11);
@@ -292,13 +314,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePickerDo1);
             this.Controls.Add(this.dateTimePickerOd1);
-            this.MaximumSize = new System.Drawing.Size(662, 648);
-            this.MinimumSize = new System.Drawing.Size(662, 648);
+            this.MaximumSize = new System.Drawing.Size(1280, 691);
+            this.MinimumSize = new System.Drawing.Size(1280, 691);
             this.Name = "Statistika";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Statistika";
             this.Leave += new System.EventHandler(this.Statistika_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,5 +352,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerDo3;
         private System.Windows.Forms.DateTimePicker dateTimePickerOd3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
