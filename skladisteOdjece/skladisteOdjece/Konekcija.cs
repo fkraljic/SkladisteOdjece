@@ -12,7 +12,7 @@ namespace skladisteOdjece
         public NpgsqlConnection conn;
         public void OtvoriKonekciju()
         {
-            string connstring = String.Format("Server=127.0.0.1;Port=5432;User Id=postgres;Password=1234; Database=ducan_odjeca");
+            string connstring = String.Format("Server=127.0.0.1;Port=5432;User Id=postgres;Password=1234; Database=postgres");
             conn = new NpgsqlConnection(connstring);
             conn.Open();
         }
