@@ -59,7 +59,7 @@ namespace skladisteOdjece
                 konekcija.OtvoriKonekciju();
                 NpgsqlCommand command = new NpgsqlCommand(sql, konekcija.conn);
                 command.ExecuteReader();
-                konekcija.OtvoriKonekciju();
+                konekcija.ZatvoriKonekciju();
             }
             catch(PostgresException msg)
             {
