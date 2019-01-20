@@ -1,9 +1,12 @@
 Upute
+1. Unzipajte podatke iz izvornih_datoteka
+	skladište.tar je baza
+	skladisteOdjeæe je mapa u kojoj se aplikacija pokreæe
 
 Server
 1. Prvo preuzmite i instalirajte PostgreSQL za Windows x86-64  https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 2. Bitno, kod instalacije ostavite sve opcije oznaèene (pogotovo pgAdmin v4)
-3. Šifru koju unesete za superusera nek bude 1234, a port 5432
+3. Šifru koju unesete za superusera nek bude 1234, a port 5432, te nastavite na NEXT
 4. Ne trebate otvarati stack builder program
 
 5. Nakon instalacije pokrenite pgAdmin v4
@@ -11,13 +14,14 @@ Server
 	General
 		Name: ducan_odjece
 	Connection
-		Host: 127.0.0.1
+		ostavite sve kako je i upišite sljedeæe
+		Host: localhost
 		Password: 1234
-7. Kreirali ste server, otvorite server, Desni klik miša na bazu postgres->Restore
+7. Kreirali ste server, otvorite Server te Databases, Desni klik miša na bazu postgres->Restore
 	Format: Custom or tar
-	Filename: tri toèkice i u prozoru odaberite Format all files, sad odaberite skladište fajl
+	Filename: tri toèkice pritisnite i u novom prozoru odaberite Format: all files, sad odaberite skladište fajl
 	Restore options:
 		Oznaèi Predata, Data, Postdata
 Aplikacija
 1. otvorite i pokrenite skladisteOdjece.exe
-	skladisteOdjece\skladisteOdjece\skladisteOdjece\bin\Debug\skladisteOdjece.exe
+	Mapa: skladisteOdjece\skladisteOdjece\bin\Debug\skladisteOdjece.exe
